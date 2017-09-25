@@ -6,5 +6,10 @@
 			$('#fetched').append(result);
 		});
 	});
-
+	$('#jobs').on('click', function(){
+		$.get( 'jobs.php', function(result){
+			$('#fetched').empty();
+			$('#fetched').append(result);
+		});
+	});
 }());

@@ -16,7 +16,7 @@
 		<ul>
 			<li id="createJob">Create Job</li>
 			<li>Employees</li>
-			<li>Reports</li>
+			<li id="jobs">Jobs</li>
 			<li>Inventory(Test)</li>
 		</ul>
 		<div id="fetched">

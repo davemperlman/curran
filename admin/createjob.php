@@ -1,7 +1,7 @@
 <?php require_once '../autoload.php'; ?>
 
 		<form action="">
-			
+			<h1>Create Job</h1>
 			<fieldset>
 				<label for="name">Name</label>
 
@@ -29,7 +29,8 @@
 			<fieldset id="employees">
 				<label for="employee">Employee</label>
 
-			<select name="employee" id="employee">
+			<div id="employeeSelect">
+				<select name="employee" id="employee">
 				<?php $employees = Classes\database::get('SELECT * FROM users');?>
 				<?php foreach ($employees as $employee): ?>
 					<option value="<?php echo $employee['id'] ?>">
@@ -37,15 +38,23 @@
 					</option>
 				<?php endforeach ?>
 			</select>
+			</div>
 			<a href="#" class="addEmployee">+</a>
 			</fieldset>
 			<input type="submit">
 		</form>
+
+
 		<script>
 			$('.addEmployee').on('click', function(e){
+
 				e.preventDefault();
-				$('#employees').append(
-					"$employees['first']"
-					);
-			})
+
+				$('#employeeSelect').clone().insertAfter('#employeeSelect').append("<a href='#' class='removeEmployee'>-</a>");
+
+					$('.removeEmployee').on('click', function(e){
+					e.preventDefault();
+					$(this).closest('#employeeSelect').remove();
+				});
+			});	
 		</script>
